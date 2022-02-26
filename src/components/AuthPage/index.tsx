@@ -1,3 +1,3 @@
-export default function AuthPage() {
+export default function AuthPage(): JSX.Element {
   return <div>Sheesh</div>;
 }

@@ -5,8 +5,7 @@ import AuthPage from './components/AuthPage';
 import IndexPage from './components/IndexPage';
 
 const theme = createTheme({
-  palette: {
-  },
+  palette: {},
 });
 
 export default function App(): JSX.Element {

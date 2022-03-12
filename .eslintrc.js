@@ -14,7 +14,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-//   Not sure if i need ignore vite.config.ts If not - have error from @typescript-eslint/parser
+  //   Not sure if i need ignore vite.config.ts If not - have error from @typescript-eslint/parser
   ignorePatterns: ['.eslintrc.js', 'vite.config.ts'],
   extends: [
     'eslint:recommended',
@@ -147,6 +147,7 @@ module.exports = {
         ignore: [0, 1, 2, 12, 24, 60, 100, 1000, 2000, 10000],
       },
     ],
+    "react/jsx-curly-brace-presence": ["warn", { "props": "never", "children": "never", "propElementValues": "always" }],
     'react/no-access-state-in-setstate': 'error',
     'react/no-danger': 'error',
     'react/no-multi-comp': 'error',

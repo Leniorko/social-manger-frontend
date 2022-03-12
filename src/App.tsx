@@ -1,16 +1,13 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 
-import AuthPage from './components/AuthPage';
-import IndexPage from './components/IndexPage';
-
-const theme = createTheme({
-  palette: {},
-});
+import AuthPage from './pages/AuthPage';
+import IndexPage from './pages/IndexPage';
+import { appTheme } from './utils/theme';
 
 export default function App(): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={appTheme}>
       <CssBaseline />
       <Routes>
         <Route path="/" element={<IndexPage />} />

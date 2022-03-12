@@ -2,14 +2,17 @@
 
 **IMPORTANT NOTE:** Currently under heavy development and completely unfinished.
 
-There is also will be backend part, but it's to be started yet.
-<!-- TODO: Add backend repo link. -->
+There is [backend part](https://github.com/Leniorko/social-manager-backend)
 
 ### Tech stack
+
+Every technology was chosen just because author wanted to. Without particular clear reason for it.
+
 - React
-- Revolt
+- Recoil
 - TS
 - MUI
+- Formik
 - Vite
 - pnpm
 

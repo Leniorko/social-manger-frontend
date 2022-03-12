@@ -1,17 +1,21 @@
 import { Box, Button, Container, Paper, TextField } from '@mui/material';
 import { useFormik } from 'formik';
-import { object, string } from 'yup';
+import { object, ref, string } from 'yup';
 
 const validationSchema = object({
   login: string().required('Login must be provided'),
   password: string().required('Password must be provided'),
+  passwordConfirmation: string()
+    .oneOf([ref('password'), null], 'Not matching the password')
+    .required(),
 });
 
-export default function AuthPage(): JSX.Element {
+export default function RegisterPage(): JSX.Element {
   const formik = useFormik({
     initialValues: {
       login: '',
       password: '',
+      passwordConfirmation: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -29,9 +33,10 @@ export default function AuthPage(): JSX.Element {
       }}
     >
       <Paper
+        elevation={3}
         sx={{
           width: 'fit-content',
-          padding: 1,
+          padding: 3,
         }}
       >
         <Box
@@ -44,7 +49,7 @@ export default function AuthPage(): JSX.Element {
           }}
           onSubmit={formik.handleSubmit}
         >
-          <Box component="h1">Sign in</Box>
+          <Box component="h1">Registration</Box>
           <TextField
             name="login"
             label="Login"
@@ -64,12 +69,24 @@ export default function AuthPage(): JSX.Element {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
+          <TextField
+            name="passwordConfirmation"
+            label="Password Confirmation"
+            type="password"
+            value={formik.values.passwordConfirmation}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            error={
+              formik.touched.passwordConfirmation && Boolean(formik.errors.passwordConfirmation)
+            }
+            helperText={formik.touched.passwordConfirmation && formik.errors.passwordConfirmation}
+          />
           <Button
             type="submit"
             variant="contained"
             disabled={Boolean(formik.errors.login || formik.errors.password)}
           >
-            Sign in
+            Submit
           </Button>
         </Box>
       </Paper>

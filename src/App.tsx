@@ -1,8 +1,9 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 
-import AuthPage from './pages/AuthPage';
 import IndexPage from './pages/IndexPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 import { appTheme } from './utils/theme';
 
 export default function App(): JSX.Element {
@@ -11,7 +12,8 @@ export default function App(): JSX.Element {
       <CssBaseline />
       <Routes>
         <Route path="/" element={<IndexPage />} />
-        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </ThemeProvider>
   );

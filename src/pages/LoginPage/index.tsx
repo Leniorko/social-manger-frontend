@@ -1,4 +1,12 @@
-import { Box, Button, Container, Paper, TextField } from '@mui/material';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Container,
+  FormControlLabel,
+  Paper,
+  TextField,
+} from '@mui/material';
 import { useFormik } from 'formik';
 import { object, string } from 'yup';
 
@@ -12,6 +20,7 @@ export default function LoginPage(): JSX.Element {
     initialValues: {
       login: '',
       password: '',
+      remember: false,
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -65,6 +74,13 @@ export default function LoginPage(): JSX.Element {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
+          <FormControlLabel
+            label="Remember me"
+            control={
+              <Checkbox name="remember" onChange={formik.handleChange} onBlur={formik.handleBlur} />
+            }
+          />
+
           <Button
             type="submit"
             variant="contained"
